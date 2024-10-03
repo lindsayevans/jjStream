@@ -18,22 +18,28 @@
   </head>
   <body class="viz-active">
     <audio preload="none" id="player" autoplay controls crossorigin></audio>
-    <div id="time"></div>
-    <div id="details"></div>
     <ul id="history"></ul>
     <div id="viz"></div>
-    <button id="viz-control">
-      <span class="icon material-symbols-outlined"> bar_chart_off </span>
-    </button>
-    <button id="weather">
-      <span class="icon material-symbols-outlined"> partly_cloudy_day </span>
-      <span id="temp">--°</span>
-      ~
-      <span id="apparent-temp">--°</span>
-    </button>
-    <div id="history-icon">
-      <span class="icon material-symbols-outlined"> history </span>
+
+    <div id="display">
+      <button id="weather" class="control">
+        <span class="icon material-symbols-outlined"> partly_cloudy_day </span>
+        <span id="temp">--°</span>
+        ~
+        <span id="apparent-temp">--°</span>
+      </button>
+      <div id="history-icon" class="control">
+        <span class="icon material-symbols-outlined"> history </span>
+      </div>
+
+      <div id="time"></div>
+      <div id="details">details here</div>
+
+      <button id="viz-control" class="control">
+        <span class="icon material-symbols-outlined"> bar_chart_off </span>
+      </button>
     </div>
+
     <script type="module" src="./main.ts"></script>
   </body>
 </html>

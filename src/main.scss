@@ -7,13 +7,16 @@ body {
 
 body {
   background: #111;
-  color: rgba(lightsteelblue, 0.3);
-  display: flex;
-  gap: 4rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-family: 'Roboto Slab', serif;
+  color: rgba(lightsteelblue, 0.3);
+}
+
+#display {
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr 1fr auto;
+  height: 100%;
 }
 
 #player {
@@ -23,10 +26,16 @@ body {
 }
 
 #time {
+  grid-column: 1 / span 2;
+  align-self: flex-end;
+  justify-self: center;
   font-size: 8rem;
 }
 
 #details {
+  grid-column: 1 / span 2;
+  align-self: flex-start;
+  justify-self: center;
   font-size: 4.5rem;
   text-align: center;
 }
@@ -45,33 +54,15 @@ body {
   }
 }
 
-#history-icon {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  padding: 0;
-  color: #fff;
-  transform: scale(3);
-  transform-origin: top right;
-  opacity: 0.1;
-  transition: opacity 0.15s ease-in-out;
-
-  &:hover {
-    opacity: 0.666;
-  }
-}
-
-#viz-control {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  padding: 0;
+.control {
+  padding: 0.5rem;
   background: none;
   border: none;
   color: #fff;
-  transform: scale(3);
-  transform-origin: bottom left;
+  font-family: inherit;
+  font-size: inherit;
   opacity: 0.1;
+  transform: scale(3);
   transition: opacity 0.15s ease-in-out;
 
   &:hover {
@@ -80,26 +71,28 @@ body {
 }
 
 #weather {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
+  grid-column: 1;
+  grid-row: 1;
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  padding: 0;
-  background: none;
-  border: none;
-  color: #fff;
-  font-family: inherit;
-  font-size: inherit;
-  transform: scale(3);
   transform-origin: top left;
   opacity: 0.2;
-  transition: opacity 0.15s ease-in-out;
 
   &:hover {
     opacity: 0.666;
   }
+}
+
+#history-icon {
+  justify-self: flex-end;
+  transform-origin: top right;
+}
+
+#viz-control {
+  justify-self: flex-start;
+  align-self: flex-end;
+  transform-origin: bottom left;
 }
 
 #history {
