@@ -1,0 +1,138 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #111;
+  color: rgba(lightsteelblue, 0.3);
+  display: flex;
+  gap: 4rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto Slab', serif;
+}
+
+#player {
+  position: absolute;
+  bottom: 4rem;
+  opacity: 0;
+}
+
+#time {
+  font-size: 8rem;
+}
+
+#details {
+  font-size: 4.5rem;
+  text-align: center;
+}
+
+#viz {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-in-out;
+
+  .viz-active & {
+    opacity: 0.15;
+  }
+}
+
+#history-icon {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  padding: 0;
+  color: #fff;
+  transform: scale(3);
+  transform-origin: top right;
+  opacity: 0.1;
+  transition: opacity 0.15s ease-in-out;
+
+  &:hover {
+    opacity: 0.666;
+  }
+}
+
+#viz-control {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  transform: scale(3);
+  transform-origin: bottom left;
+  opacity: 0.1;
+  transition: opacity 0.15s ease-in-out;
+
+  &:hover {
+    opacity: 0.666;
+  }
+}
+
+#weather {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: inherit;
+  transform: scale(3);
+  transform-origin: top left;
+  opacity: 0.2;
+  transition: opacity 0.15s ease-in-out;
+
+  &:hover {
+    opacity: 0.666;
+  }
+}
+
+#history {
+  position: absolute;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  font-size: 3rem;
+  transform: translateX(99%);
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    transform: translateX(0%);
+  }
+
+  li {
+    margin: 1rem 3rem;
+    text-align: right;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.15s ease-in-out;
+
+    &:hover {
+      color: steelblue;
+    }
+  }
+}

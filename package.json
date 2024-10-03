@@ -1,0 +1,21 @@
+{
+  "name": "jjStream",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Lindsay Evans <linz@linz.id.au>",
+  "license": "MIT",
+  "source": "./src/index.html",
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "build": "NODE_ENV=production parcel build ./src/index.html"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
+    "parcel": "^2.12.0"
+  },
+  "dependencies": {
+    "audiomotion-analyzer": "^4.5.0",
+    "hls.js": "^1.5.15"
+  }
+}
