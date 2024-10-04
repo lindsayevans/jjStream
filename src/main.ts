@@ -3,6 +3,7 @@ import { playStream } from './stream';
 import { populateHistory, getDetails } from './details';
 import { showTime } from './time';
 import { showVisualiser } from './visualiser';
+import { getBackgroundImage } from './background';
 
 export const PLAYLIST_URL =
   'https://mediaserviceslive.akamaized.net/hls/live/2038315/doublejnsw/index.m3u8';
@@ -17,3 +18,4 @@ getDetails();
 getWeather();
 populateHistory();
 showVisualiser();
+getBackgroundImage();
