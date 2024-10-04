@@ -17,7 +17,7 @@ export const getBackgroundImage = async () => {
       document.querySelector<HTMLAnchorElement>('#background-attribution') ||
       new HTMLAnchorElement();
     $attribution.href = data.links.html;
-    $attribution.innerHTML = `by ${data.user.name}`;
+    $attribution.innerHTML = `Unsplash photo by ${data.user.name}`;
     // $attribution.innerHTML = `<span>${
     //   data.description || data.alt_description
     // }</span> <span>by ${data.user.name}</span>`;
@@ -26,7 +26,7 @@ export const getBackgroundImage = async () => {
 
   backgroundImageTimeout = setTimeout(() => {
     getBackgroundImage();
-  }, 1000 * 60);
+  }, 1000 * 60 * 5);
 };
 
 const $backgroundIcon =
