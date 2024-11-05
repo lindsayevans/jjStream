@@ -2,7 +2,7 @@ import { getWeather } from './weather';
 import { playStream } from './stream';
 import { populateHistory, getDetails } from './details';
 import { showTime } from './time';
-import { showVisualiser } from './visualiser';
+import { setupVisualiser } from './visualiser';
 import { getBackgroundImage } from './background';
 
 export const PLAYLIST_URL =
@@ -17,5 +17,5 @@ playStream();
 getDetails();
 getWeather();
 populateHistory();
-showVisualiser();
+setupVisualiser();
 getBackgroundImage();
