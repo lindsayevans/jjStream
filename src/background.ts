@@ -1,4 +1,5 @@
 let backgroundImageTimeout: number;
+let $backgroundImage: HTMLImageElement;
 export const getBackgroundImage = async () => {
   const response = await fetch(
     `https://api.unsplash.com/photos/random?orientation=landscape&topics=nature`,
@@ -12,7 +13,6 @@ export const getBackgroundImage = async () => {
 
   const $img = new Image();
   $img.addEventListener('load', () => {
-    document.body.style.backgroundImage = `url(${data.urls.full})`;
     const $attribution =
       document.querySelector<HTMLAnchorElement>('#background-attribution') ||
       new HTMLAnchorElement();
@@ -21,6 +21,22 @@ export const getBackgroundImage = async () => {
     // $attribution.innerHTML = `<span>${
     //   data.description || data.alt_description
     // }</span> <span>by ${data.user.name}</span>`;
+
+    const $newBackgroundImage = document.createElement('img');
+    $newBackgroundImage.className = 'background-img swapping';
+    $newBackgroundImage.src = $img.src;
+    document.body.appendChild($newBackgroundImage);
+
+    setTimeout(() => {
+      $newBackgroundImage.classList.remove('swapping');
+    }, 100);
+
+    setTimeout(() => {
+      if ($backgroundImage) {
+        $backgroundImage.remove();
+      }
+      $backgroundImage = $newBackgroundImage;
+    }, 3000);
   });
   $img.src = data.urls.full;
 
