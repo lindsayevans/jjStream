@@ -43,6 +43,7 @@ body {
   justify-self: center;
   font-size: 4.5rem;
   text-align: center;
+  text-wrap: balance;
 }
 
 #viz {
@@ -118,7 +119,7 @@ body {
   position: absolute;
   z-index: -1;
   inset: 0;
-  opacity: 1;
+  opacity: 0.5;
   transition: opacity 3s ease-in-out;
 
   &.swapping {
