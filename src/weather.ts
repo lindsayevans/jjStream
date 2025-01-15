@@ -50,6 +50,7 @@ const $weatherIcon =
 const $temp = document.getElementById('temp') || new HTMLSpanElement();
 const $apparentTemp =
   document.getElementById('apparent-temp') || new HTMLSpanElement();
+const $humidity = document.getElementById('humidity') || new HTMLSpanElement();
 
 export const getWeather = async () => {
   fetch(WEATHER_URL)
@@ -60,6 +61,8 @@ export const getWeather = async () => {
         parseInt(weather.current.temperature_2m.toString(), 10) + '°';
       $apparentTemp.innerText =
         parseInt(weather.current.apparent_temperature, 10) + '°';
+      $humidity.innerText =
+        '(' + parseInt(weather.current.relative_humidity_2m, 10) + '%)';
       setTimeout(
         getWeather,
         1000 * 60 * 15 // 15min
