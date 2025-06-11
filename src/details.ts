@@ -1,6 +1,7 @@
 import { PLAYING_NOW_URL } from './main';
 
-const $details = document.getElementById('details') || new HTMLDivElement();
+const $title = document.getElementById('title') || new HTMLDivElement();
+const $artist = document.getElementById('artist') || new HTMLDivElement();
 const $history = document.getElementById('history') || new HTMLDivElement();
 const history: string[] = [];
 let nextUpdate: number;
@@ -10,11 +11,15 @@ export const getDetails = async () => {
     .then((x) => x.json())
     .then((x) => {
       let details = '';
+      let title = '';
+      let artist = '';
 
       if (x.now.recording) {
-        details = `${x.now.recording.title} - ${x.now.recording.artists
+        title = x.now.recording.title;
+        artist = x.now.recording.artists
           .map((artist) => artist.name)
-          .join(', ')}`;
+          .join(', ');
+        details = `${title} - ${artist}`;
 
         if (
           history.length === 0 ||
@@ -25,7 +30,8 @@ export const getDetails = async () => {
         }
       }
 
-      $details.innerHTML = details;
+      $title.innerHTML = title;
+      $artist.innerHTML = artist;
       if (nextUpdate) {
         clearTimeout(nextUpdate);
       }
